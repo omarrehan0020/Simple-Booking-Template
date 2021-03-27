@@ -1,0 +1,263 @@
+$leftDir: left ;
+
+$whitegrey: #F5F3F8 ;
+
+%msgStyle{
+    font-size: 8px;
+    margin: 5px;
+    padding: 5px 10px;
+    width: 60%;
+    border-radius: 10px 10px 10px 4px;
+}
+
+@mixin box-shadow($top, $left, $blur, $color) {
+      -webkit-box-shadow: $top $left $blur $color;
+      -moz-box-shadow: $top $left $blur $color;
+      box-shadow: $top $left $blur $color;
+  }
+
+
+*{
+    margin: 0;
+    padding:  0 ;
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+body{
+    background-color: $whitegrey;
+}
+.chat{
+    position: relative;
+    width: 50%;
+    float: $leftDir;
+    overflow: hidden;
+    height: 100vh;
+    &:before {
+        position: absolute;
+        content: "";
+        width: 65%;
+        height: 80vh;
+        background-image: linear-gradient(hsl(293, 100%, 63%),hsl(264, 100%, 61%));
+        top: 0;
+        left: -20%;
+        border-radius: 0 0 168% 219%;
+    }
+    .chatContent{
+        position: absolute;
+        top: 110px;
+        left: 240px;
+        background-color: $whitegrey;
+        width: 230px;
+        border: 10px solid #FFF;
+        border-radius: 20px;
+        @include box-shadow(10px,10px ,40px ,$whitegrey);
+        .avatar{
+            width: 100%;
+            height: 70px;
+            background-image:  linear-gradient(to left,hsl(293, 100%, 63%),hsl(264, 100%, 61%));
+            border-radius: 15px 15px 5px 5px;
+            overflow: hidden;
+            padding: 25px 10px 0;
+            color: $whitegrey;
+            > span{
+                display: block;
+                position: absolute;
+                top: 0;
+                height: 15px;
+                width: 120px;
+                background-color: #FFF;
+                left: 45px;
+                border-radius: 0 0 10px 10px;
+            }
+            .avatarIcon{
+                float: $leftDir;
+                margin-top: 8px;
+                margin-right: 10px;
+            }
+            .avatarImg{
+                width: 30px;
+                height: 30px;
+                float: $leftDir;
+                margin-right: 10px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    border: 2px solid #FFF;
+                }
+            }
+            .avatarName{
+                float: $leftDir;
+                h5{
+                    font-weight: 300;
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                }
+                span{
+                    display: block;
+                    font-size: 9px;
+                    color: #bbb7b7;
+                }
+            }
+            .listIcon{
+                float: right;
+                border-radius: 50%;
+                ul{
+                    list-style: none;
+                    margin-top: 10px;
+                    li{
+                        background-color: $whitegrey;
+                        margin: 2px ;
+                        width: 2px;
+                        height: 2px;
+                    }
+                }
+            }
+        }
+        .first{
+            @extend %msgStyle ;
+            background-color: #EDE4F6;
+            color: hsl(264, 100%, 61%);
+        }
+        .second{
+            @extend %msgStyle ;
+            background-color: #FFF;
+            color: hsl(271, 36%, 24%);
+            margin-left: auto;
+            border-radius: 10px 10px 4px 10px;
+            }
+        .record{
+            background-image:  linear-gradient(to right,hsl(293, 100%, 63%),hsl(264, 100%, 61%));
+            overflow: hidden;
+            color: $whitegrey;
+            height: 28px;
+            .recordIcon{
+                float: $leftDir;
+                width: 15px;
+                height: 15px;
+                margin-top: 1px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .recordDesc{
+                float: $leftDir;
+                font-size: 6px;
+                margin-left: 3px;
+                margin-top: 4px;
+            }
+            .recordHeading{
+                float: right;
+                font-weight: 900;
+                
+            }
+        }
+        .message{
+            overflow: hidden;
+            background-color: #FFF;
+            padding: 6px 15px;
+            border-radius: 20px;
+            margin: 8px;
+            color: #a39daa;
+            span{
+                font-size: 9px;
+            }
+            i{
+                float: right;
+                font-size: 20px;
+                font-weight: 900;
+                background-color: #662fb7;
+                border-radius: 50%;
+                color: #FFF;
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                padding-left: 10px;
+            }
+        }
+        .secondImages{
+            overflow: hidden;
+            margin-left: auto;
+            margin-right: 6px;
+                > div {
+                    width: 40px;
+                    height: 40px;
+                    float: right;
+                    margin: 5px;
+                    img{
+                        border-radius: 5px;
+                        width: 100%;
+                        height: 100%;
+                    }
+            }
+        
+        }
+    }
+}
+.booking {
+    position: relative;
+    width: 50%;
+    float: $leftDir;
+    height: 100vh;
+    overflow: hidden;
+    &:before {
+        position: absolute;
+        content: "";
+        background-color: #ececec;
+        width: 65%;
+        height: 80vh;
+        bottom: 0;
+        right: -20%;
+        border-radius:168% 219% 0 0 ;
+        z-index: -1;
+    }
+    .bookingContent{
+        h2{
+            font-weight: 600;
+            font-size: 30px;
+            margin-bottom: 25px;
+            color: hsl(271, 36%, 24%);
+        }
+        p{
+            line-height: 1.5;
+            color: hsl(270, 7%, 64%);
+        }
+        position: absolute;
+        width: 65%;
+        top: 37%;
+        
+    }
+}
+
+.chat{
+    @media (max-width: 600px) {
+        width: 100%;
+    }
+    .chatContent{
+        margin: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+.booking{
+    @media (max-width: 600px) {
+        width: 100%;
+        padding: 10%;
+        margin-top: -100px;
+    }
+    .bookingContent{
+        @media (max-width: 600px) {
+            text-align: center;
+            width: 80%;
+            margin: auto;
+        }
+    }
+    &:before{
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+}
